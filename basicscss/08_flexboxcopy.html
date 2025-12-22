@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1,
+      h2 {
+        color: #333;
+      }
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+      div.container {
+        color: black;
+        border: #333 2px solid;
+      }
+      div.flex-container {
+        display: flex;
+        height: 200px;
+        margin-bottom: 10px;
+      }
+      .circle {
+        /*learning is that in the div class we have written circle so all the divs with class circle will have these properties.
+        The pastel propert will be different as we have named everything differently ie pasterl1 or pastel 2
+        This way we can style the common properties in one place and the unique properties separately by naming div class in that way */
+        background-color: #ffb3ba;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        margin: 5px;
+      }
+      .one {
+        background-color: #cb4b57;
+      }
+      .two {
+        background-color: #eea95b;
+      }
+
+      .three {
+        background-color: #f9f93a;
+      }
+      .four {
+        background-color: #7373d6;
+      }
+      .five {
+        background-color: #baffc9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flexbox Masterclass Demo</h1>
+    <div class="container">
+      <h2>LOLOL</h2>
+      <div class="flex-container">
+        <div class="one circle">1</div>
+        <div class="two circle">2</div>
+        <div class="three circle">3</div>
+        <div class="four circle">4</div>
+        <div class="five circle">5</div>
+      </div>
+    </div>
+  </body>
+</html>
