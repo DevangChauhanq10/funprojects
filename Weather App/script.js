@@ -8,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const errorMessage = document.getElementById("error-message");
 
   // OpenWeatherMap API key
-  const API_KEY = "YOUR_NEW_API_KEY";
+ const API_KEY = ""; // Add your OpenWeather API key here
+
 
   // Handle weather fetch on button click
   getWeatherButton.addEventListener("click", async () => {
