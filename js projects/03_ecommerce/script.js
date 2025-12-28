@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const products = [
-    { id: 1, name: "Milk", price: 30.99 },
-    { id: 2, name: "Bread", price: 20.0 },
+    { id: 1, name: "Milk", price: 29.99 },
+    { id: 2, name: "Bread", price: 19.99 },
     { id: 3, name: "Wine", price: 59.999 },
   ];
-
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   const productList = document.getElementById("product-list");
@@ -35,10 +34,40 @@ document.addEventListener("DOMContentLoaded", () => {
   function addToCart(product) {
     cart.push(product);
     saveCart();
-    
+    renderCart();
   }
 
   function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
+  function renderCart() {
+    cartItems.innerText = "";
+    let totalPrice = 0;
+
+    if (cart.length > 0) {
+      emptyCartMessage.classList.add("hidden");
+      cartTotalMessage.classList.remove("hidden");
+      cart.forEach((item, index) => {
+        totalPrice += item.price;
+        const cartItem = document.createElement("div");
+        cartItem.innerHTML = `
+        ${item.name} - $${item.price.toFixed(2)}
+        `;
+        cartItems.appendChild(cartItem);
+        totalPriceDisplay.textContent = `${totalPrice.toFixed(2)}`;
+      });
+    } else {
+      emptyCartMessage.classList.remove("hidden");
+      totalPriceDisplay.textContent = `$0.00`;
+    }
+  }
+
+  checkOutBtn.addEventListener("click", () => {
+    cart.length = 0;
+    saveCart();
+    alert("Checkout successfully");
+    renderCart();
+  });
+  renderCart();
+});
